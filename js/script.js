@@ -48,6 +48,7 @@ play.addEventListener("click", function() {
 
         grid.append(square);
 
+        let clickedNumbers = [];
         let plusClick = 1;
         square.addEventListener("click", function() {
             
@@ -60,13 +61,24 @@ play.addEventListener("click", function() {
                 }
                 console.log(click);
                 
-                msg.innerHTML = `HAI PERSO DOPO ${click} MOVIMENTI!`
+                msg.innerHTML = `HAI PERSO DOPO ${click} MOVIMENTI!`;
 
-            } else {
+                
+                
+
+            } else if (!arrayBombs.includes(parseInt(this.innerHTML)) && msg.innerHTML == "" && !clickedNumbers.includes(this.textContent)) {
                 this.classList.add("blue");
+                clickedNumbers.push(this.textContent);
+                console.log(clickedNumbers);
                 console.log(this.textContent);
 
                 click += plusClick;
+
+
+
+                if (click === 85) {
+                    msg.innerHTML = `HAI VINTO DOPO ${click} MOVIMENTI`;
+                }
             }
 
             
