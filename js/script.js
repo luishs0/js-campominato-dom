@@ -3,14 +3,16 @@ let rndNumberIn;
 
 let grid = document.querySelector(".grid");
 
+let i = 1;
 while (numbers.length < 100) {
 
-    rndNumberIn = getRndInteger(1, 100);
+    rndNumberIn = i;
 
     if (!numbers.includes(rndNumberIn)) {
         numbers.push(rndNumberIn);
     } 
 
+    i++
    
 }
 
