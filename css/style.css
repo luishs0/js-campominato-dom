@@ -1,0 +1,126 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    height: 100vh;
+    width: 100%;
+}
+
+
+/* HEADER */
+
+.header-container {
+    width: 100%;
+    height: 80px;
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.header-left {
+    padding-left: 1.5rem;
+}
+
+.header-right {
+    padding-right: 1.5rem;
+}
+
+.header-right button {
+    padding: .1rem 1rem;
+}
+
+#play {
+    cursor: pointer;
+}
+
+
+/* MAIN */
+
+main {
+    background-color: aquamarine;
+    height: calc(100vh - 80px - 50px);
+}
+
+.main-container {
+    width: 70%;
+    margin: auto;
+    height: calc(100vh - 80px - 50px);
+}
+
+.grid {
+    width: 100%;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.square {
+    border: 1px solid black;
+    width: calc(100% / 10);
+    text-align: center;
+    height: calc((100vh - 80px - 50px - 6rem) / 10);
+    cursor: pointer;
+    line-height: calc((100vh - 80px - 50px - 6rem) / 10);
+}
+
+
+/* FOOTER */
+
+.footer-container {
+    width: 100%;
+    height: 50px;
+
+    padding-left: 1.5rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 576px) {
+    .main-container {
+        width: 95%;
+    }
+
+    .square {
+        border: .3px solid black;
+    }
+
+    h1 {
+        font-size: 1rem;
+    }
+}
+
+/* UTILITY */
+.d-block {
+    display: block;
+}
+
+.d-none {
+    display: none;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.color_white {
+    color: white;
+}
