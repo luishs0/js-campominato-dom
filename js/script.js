@@ -1,28 +1,23 @@
-let numbers = [];
-let rndNumberIn;
-
 let grid = document.querySelector(".grid");
+let numbers = [];
 
 let j = 1;
 while (numbers.length < 100) {
 
-    rndNumberIn = j;
-
-    numbers.push(rndNumberIn);
+    numbers.push(j);
     
     j++
 }
 
 // CLICK PLAY
-
 let play = document.getElementById("play");
 
 
 play.addEventListener("click", function() {
-    grid.classList.add("d-flex");
+    // Cancello i quadrati che c'erano nella grid
     grid.innerHTML = "";
     
-
+    // GENERA I QUADRATI DELLA GRID
     for (let i = 0; i < numbers.length; i++) {
             
         let square = document.createElement("div");
@@ -42,6 +37,7 @@ play.addEventListener("click", function() {
         
     }
 
+    // GENERA IL ARRAY CON LE BOMBE
     let arrayBombs = [];
     while (arrayBombs.length < 16) {
         let numberBomb = getRndInteger(1, 100);
@@ -55,21 +51,9 @@ play.addEventListener("click", function() {
 })
 
 
-// FUNCTION
+// FUNCTION --------------------------------------------------
 
+// Numero random
 function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1) ) + min;
-}
-
-function squareBlue() {
-    square.classList.add("blue");
-    square.classList.add("color_white");
-
-    console.log(square.textContent);
-    if (square.classList.contains("blue")) {
-        square.classList.remove("blue");
-        square.classList.remove("color_white");
-    } else if (square.classList.contains("red")) {
-        square.classList.remove("red");
-    }
 }
