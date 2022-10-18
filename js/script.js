@@ -61,10 +61,11 @@ play.addEventListener("click", function() {
                 }
                 console.log(click);
                 
-                msg.innerHTML = `HAI PERSO DOPO ${click} MOVIMENTI!`;
-
-                
-                
+                if (click === 1) {
+                    msg.innerHTML= `HAI PERSO DOPO 1 MOVIMENTO`
+                } else {
+                    msg.innerHTML = `HAI PERSO DOPO ${click} MOVIMENTI!`;
+                }
 
             } else if (!arrayBombs.includes(parseInt(this.innerHTML)) && msg.innerHTML == "" && !clickedNumbers.includes(this.textContent)) {
                 this.classList.add("blue");
