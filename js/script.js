@@ -1,4 +1,5 @@
 let grid = document.querySelector(".grid");
+let mainContainer = document.querySelector(".main-container")
 let numbers = [];
 
 let j = 1;
@@ -17,25 +18,6 @@ play.addEventListener("click", function() {
     // Cancello i quadrati che c'erano nella grid
     grid.innerHTML = "";
     
-    // GENERA I QUADRATI DELLA GRID
-    for (let i = 0; i < numbers.length; i++) {
-            
-        let square = document.createElement("div");
-        square.classList.add("square");
-
-        square.innerHTML = numbers[i];
-
-        grid.append(square);
-    
-        square.addEventListener("click", function() {
-            this.classList.add("blue");
-            this.classList.add("color_white");
-    
-            console.log(this.textContent);
-            
-        })
-        
-    }
 
     // GENERA IL ARRAY CON LE BOMBE
     let arrayBombs = [];
@@ -45,10 +27,56 @@ play.addEventListener("click", function() {
             arrayBombs.push(numberBomb);
         }
     }
+
     console.log(arrayBombs);
+
+    // LISTA DI SQUARES
+    const squareList = document.getElementsByClassName("square");
+    console.log(squareList);
+
+    // GENERA I QUADRATI DELLA GRID
+    let square;
+    for (let i = 0; i < numbers.length; i++) {
+            
+        square = document.createElement("div");
+        square.classList.add("square");
+
+        square.innerHTML = numbers[i];
+        // square.classList.add(`a${i + 1}`)
+
+        grid.append(square);
+
+        
+        let clicks = 0;
+        square.addEventListener("click", function() {
+            
+
+            if (arrayBombs.includes(parseInt(this.innerHTML))) {
+                console.log(this.textContent);
+                
+                for (let k = 0; k < arrayBombs.length; k++) {
+                    squareList[arrayBombs[k] - 1].classList.add("red");
+                }
+                
+                // mainContainer.append(`Hai perso dopo ${clicks} movimenti`)
+
+            } else {
+                this.classList.add("blue");
+                console.log(this.textContent);
+            }
+            
+        
+            
+        })
         
         
+        
+    }
+    
+    
 })
+
+
 
 
 // FUNCTION --------------------------------------------------
