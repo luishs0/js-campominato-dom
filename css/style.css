@@ -75,8 +75,13 @@ main {
 
 /* FOOTER */
 
+footer {
+    justify-content: space-around;
+    align-items: center;
+}
+
 .footer-container {
-    width: 100%;
+    width: 30%;
     height: 50px;
 
     padding-left: 1.5rem;
@@ -85,6 +90,12 @@ main {
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
+}
+
+.msg {
+    width: 70%;
+    padding-right: 1rem;
+    font-size: 1.5rem;
 }
 
 

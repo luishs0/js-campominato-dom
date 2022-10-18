@@ -13,10 +13,11 @@ while (numbers.length < 100) {
 // CLICK PLAY
 let play = document.getElementById("play");
 
-
+let msg = document.querySelector(".msg");
 play.addEventListener("click", function() {
     // Cancello i quadrati che c'erano nella grid
     grid.innerHTML = "";
+    msg.innerHTML = "";
     
 
     // GENERA IL ARRAY CON LE BOMBE
@@ -36,6 +37,7 @@ play.addEventListener("click", function() {
 
     // GENERA I QUADRATI DELLA GRID
     let square;
+    let click = 1;
     for (let i = 0; i < numbers.length; i++) {
             
         square = document.createElement("div");
@@ -46,7 +48,7 @@ play.addEventListener("click", function() {
 
         grid.append(square);
 
-        let click = 0;
+        let plusClick = 1;
         square.addEventListener("click", function() {
             
 
@@ -56,23 +58,23 @@ play.addEventListener("click", function() {
                 for (let k = 0; k < arrayBombs.length; k++) {
                     squareList[arrayBombs[k] - 1].classList.add("red");
                 }
+                console.log(click);
                 
-                // mainContainer.append(`Hai perso dopo ${clicks} movimenti`)
+                msg.innerHTML = `HAI PERSO DOPO ${click} MOVIMENTI!`
 
             } else {
                 this.classList.add("blue");
                 console.log(this.textContent);
 
-                click++
+                click += plusClick;
             }
 
-            console.log(click);
+            
             
         })
         
-        
-        
     }
+    console.log(click);
     
     
 })
