@@ -121,6 +121,10 @@ main {
     background-color: blue;
 }
 
+.red {
+    background-color: red;
+}
+
 .color_white {
     color: white;
 }
