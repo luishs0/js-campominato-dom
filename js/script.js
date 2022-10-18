@@ -46,14 +46,13 @@ play.addEventListener("click", function() {
 
         grid.append(square);
 
-        
-        let clicks = 0;
+        let click = 0;
         square.addEventListener("click", function() {
             
 
             if (arrayBombs.includes(parseInt(this.innerHTML))) {
                 console.log(this.textContent);
-                
+
                 for (let k = 0; k < arrayBombs.length; k++) {
                     squareList[arrayBombs[k] - 1].classList.add("red");
                 }
@@ -63,9 +62,11 @@ play.addEventListener("click", function() {
             } else {
                 this.classList.add("blue");
                 console.log(this.textContent);
+
+                click++
             }
-            
-        
+
+            console.log(click);
             
         })
         
